@@ -19,7 +19,11 @@ decimal_places = 6
 Returns a dumbpy matrix and a numc matrix with the same data
 """
 def rand_dp_nc_matrix(*args, **kwargs):
-    dp_mat, nc_mat = dp.Matrix(*args, **kwargs), nc.Matrix(*args, **kwargs)
+    dp_mat, nc_mat = None, None
+    if len(kwargs) == 0:
+        dp_mat, nc_mat = dp.Matrix(*args), nc.Matrix(*args)
+    else:
+        dp_mat, nc_mat = dp.Matrix(*args, **kwargs), nc.Matrix(*args, **kwargs)
     return dp_mat, nc_mat
 
 """

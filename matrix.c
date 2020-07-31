@@ -67,9 +67,8 @@ int allocate_matrix_ref(matrix **mat, matrix *from, int offset, int rows, int co
 }
 
 /*
- * This function frees the matrix struct pointed to by `mat`. However, you need to make sure that
- * you only free the data if `mat` is not a slice and has no existing slices, or if `mat` is the
- * last existing slice of its parent matrix and its parent matrix has no other references.
+ * You need to make sure that you only free the data if `mat` is not a slice and has no existing slices,
+ * or if `mat` is the last existing slice of its parent matrix and its parent matrix has no other references.
  * You cannot assume that mat is not NULL.
  */
 void deallocate_matrix(matrix *mat) {

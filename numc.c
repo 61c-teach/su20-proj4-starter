@@ -251,7 +251,7 @@ static PyObject *Matrix61c_subscript(Matrix61c* self, PyObject* key) {
     }
     matrix *new_mat;
     int ref_failed = allocate_matrix_ref(&new_mat, self->mat, index * self->mat->cols, self->mat->cols, 1);
-    if (ref_failed) {
+    if (ref_failed != 0) {
         return NULL;
     }
     Matrix61c* rv = (Matrix61c*) Matrix61c_new(&Matrix61cType, NULL, NULL);

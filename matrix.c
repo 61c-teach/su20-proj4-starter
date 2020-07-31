@@ -67,9 +67,9 @@ int allocate_matrix_ref(matrix **mat, matrix *from, int offset, int rows, int co
 }
 
 /*
- * You need to make sure that you only free the data if `mat` is not a slice and has no existing slices,
- * or if `mat` is the last existing slice of its parent matrix and its parent matrix has no other references.
- * You cannot assume that mat is not NULL.
+ * You need to make sure that you only free `mat->data` if `mat` is not a slice and has no existing slices,
+ * or if `mat` is the last existing slice of its parent matrix and its parent matrix has no other references
+ * (including itself). You cannot assume that mat is not NULL.
  */
 void deallocate_matrix(matrix *mat) {
     /* TODO: YOUR CODE HERE */

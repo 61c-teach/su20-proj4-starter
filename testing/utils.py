@@ -41,8 +41,13 @@ def rand_md5(mat: Union[dp.Matrix, nc.Matrix]):
     rows, cols = mat.shape
     m = hashlib.md5()
     total_cnt = mat.shape[0] * mat.shape[1]
-    for _ in range(min(total_cnt, num_samples)):
-        i = np.random.randint(rows)
-        j = np.random.randint(cols)
-        m.update(struct.pack("f", round(mat.get(i, j), decimal_places)))
+    if total_cnt < num_samples:
+        for i in range(rows):
+            for j in range(cols):
+                m.update(struct.pack("f", round(mat.get(i, j), decimal_places)))
+    else:
+        for _ in range(num_samples):
+            i = np.random.randint(rows)
+            j = np.random.randint(cols)
+            m.update(struct.pack("f", round(mat.get(i, j), decimal_places)))
     return m.digest()

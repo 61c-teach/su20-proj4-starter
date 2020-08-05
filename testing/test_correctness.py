@@ -19,7 +19,7 @@ class TestAddCorrectness:
         # TODO: YOUR CODE HERE
         pass
 
-    def test_medium_add(self):
+    def test_large_add(self):
         # TODO: YOUR CODE HERE
         pass
 
